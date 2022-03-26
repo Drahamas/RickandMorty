@@ -1,6 +1,7 @@
 body{
-    margin: 0;
-    padding: 0;
+    background-repeat: no-repeat;
+    background-size: 200vh;
+    overflow: hidden;
 }
 nav{
     width: 100vw;
@@ -8,31 +9,46 @@ nav{
 #menu{
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 80px;
+    background-color: white;
+    display: flex;
 }
 #menu li{
-    display: inline-block;
-    padding: 10px;
+    display: inline-flex;
+    padding: 10px 80px;
+    color: black;
+    font-size: 18px;
 }
+
 #menu li div{
     display: flex;
 }
+
 .listaR{
-    display: flex;
-    justify-content: right;
+    position: absolute;
+    right: 15px;
+}
+
+.listaR2{
+    position: absolute;
+    right: 150px;
 }
 
 #cartas{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 15px 200px;
 }
-
 
 .cards{
     position: relative;
-    width: 250px;
-    height: 350px;
+    width: 200px;
+    height: 260px;
     overflow: hidden;
+    margin: 15px;
+    cursor: pointer;
 }
 
 .card {
@@ -43,32 +59,21 @@ nav{
     justify-content: center;
     align-items: center;
     padding: 20px;
-    backface-visibility: hidden;
-    transition: 1s;
     cursor: pointer;
-    margin: 30px;
+    margin: auto;
 }
 
-.active{
-    z-index: 0;
-} 
-
-.back{
-    z-index: 1;
+.imagBack{
+    opacity: 0;
 }
 
-/* .front {
-    transform: perspective(500px) rotateY(0deg);
-}
-
-.back{
-    transform: perspective(500px) rotateY(180deg);
-} */
-
-/* .cards:hover .front{
-    transform: perspective(500px) rotateY(180deg);
-}
-
-.cards:hover .back{
+.imagBack.active{
+    opacity: 1;
     transform: perspective(500px) rotateY(360deg);
-} */
+    animation: voltCarta 2s;
+}
+
+@keyframes voltCarta{
+    50% {transform: perspective(500px) rotateY(230deg)}
+    70% {transform: perspective(500px) rotateY(360deg)}
+}
